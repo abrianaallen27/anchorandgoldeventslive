@@ -1,0 +1,270 @@
+import { useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
+
+export default function About() {
+  return (
+    <main>
+      {/* Hero */}
+      <section className="flex flex-col lg:flex-row items-stretch" aria-label="About hero">
+        {/* Left — copy */}
+        <div className="flex flex-col items-center justify-center bg-mauve-pink w-full lg:w-[40%] p-12">
+          <p className="font-cinzel-dec text-[13px] text-plum/75 tracking-[0.1em] mb-3">
+            T<span style={{ letterSpacing: '0.22em' }}>h</span>e Philosophy
+          </p>
+          <h1 className="font-allura text-6xl sm:text-7xl text-plum leading-tight mb-3">
+            Anchored Vision.<br />Gold Standard.
+          </h1>
+          <span className="block w-10 border-t border-plum/40 mb-4" aria-hidden="true" />
+          <div className="font-cormorant text-[21px] leading-relaxed text-plum space-y-3">
+            <p>Anchor &amp; Gold Events was built on a couple of simple beliefs:</p>
+            <ul className="space-y-2">
+              <li className="flex items-start gap-2">
+                <span className="text-plum flex-shrink-0 mt-0.5">✦</span>
+                <span>A great event should feel as strong behind the scenes as it does in the room.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-plum flex-shrink-0 mt-0.5">✦</span>
+                <span>A lot of things in life don't have to be either/or — there's space for both.</span>
+              </li>
+            </ul>
+            <p>Experience and execution go hand in hand. The energy in the space, the pacing of the day, the way details connect — all of it matters. That's where I come in.</p>
+          </div>
+        </div>
+
+        {/* Right — photo, uncropped */}
+        <div className="w-full lg:w-[60%] bg-white flex items-center justify-center">
+          <img
+            src="/images/about-hero.jpg"
+            alt="Abriana J. Allen at her Anchor & Gold Events desk"
+            className="w-full"
+          />
+        </div>
+      </section>
+
+      {/* Why Anchor & Gold */}
+      <section className="bg-plum py-[60px] px-6" aria-labelledby="why-heading">
+        <div className="max-w-[1200px] mx-auto">
+
+          {/* Header */}
+          <h2 id="why-heading" className="font-cinzel-dec text-[28px] text-blush text-center leading-tight tracking-wide">
+            The Name
+          </h2>
+          <span className="block w-10 border-t border-rose-gold mx-auto mt-[10px] mb-[20px]" aria-hidden="true" />
+
+          {/* Anchor | divider | Gold */}
+          <div className="mx-auto grid grid-cols-1 sm:grid-cols-[1fr_1px_1fr] mb-[16px]">
+            <div className="flex flex-col items-center text-center sm:pr-8 pb-8 sm:pb-0">
+              <p className="font-allura text-[35px] text-rose-gold leading-snug mb-1">Anchor</p>
+              <p className="font-cinzel text-[13px] font-semibold tracking-[0.1em] uppercase text-blush/90 mb-3">Steadiness</p>
+              <p className="font-jost text-[17px] text-blush/65 leading-[1.6]">
+                A grounding force when logistics grow complex and emotions run high. The presence that keeps everything aligned from the first conversation to the final wrap-up.
+              </p>
+            </div>
+            <div className="hidden sm:block bg-blush/15" />
+            <div className="flex flex-col items-center text-center sm:pl-8 pt-8 sm:pt-0 border-t border-blush/15 sm:border-0">
+              <p className="font-allura text-[35px] text-rose-gold leading-snug mb-1">Gold</p>
+              <p className="font-cinzel text-[13px] font-semibold tracking-[0.1em] uppercase text-blush/90 mb-3">The Standard</p>
+              <p className="font-jost text-[17px] text-blush/65 leading-[1.6]">
+                Preparation, coordination, and follow-through done at a standard you can feel every step of the way. The level of care and accountability I bring to everything I deliver.
+              </p>
+            </div>
+          </div>
+
+          {/* Ampersand symbol */}
+          <div className="flex justify-center mt-0 mb-[10px]">
+            <img src="/images/ag-mark-rose.svg" alt="" aria-hidden="true" className="w-16 h-16 object-contain" />
+          </div>
+
+          {/* Ands intro */}
+          <p className="font-jost text-[17px] text-blush/70 text-center leading-[1.6] mb-[14px]">
+            That ampersand-anchor symbol? That's the heart of it. I live in the "ands."
+          </p>
+
+          {/* Ands row */}
+          <div className="max-w-[720px] mx-auto flex flex-wrap justify-center items-center mb-[18px]">
+            <span className="font-jost italic text-[15px] text-blush/80">Professional <span className="text-rose-gold">and</span> human.</span>
+            <span className="font-jost text-[15px] text-rose-gold/80 mx-2">✦</span>
+            <span className="font-jost italic text-[15px] text-blush/80">High standards <span className="text-rose-gold">and</span> great energy.</span>
+            <span className="font-jost text-[15px] text-rose-gold/80 mx-2">✦</span>
+            <span className="font-jost italic text-[15px] text-blush/80">Creativity <span className="text-rose-gold">and</span> control.</span>
+            <span className="font-jost text-[15px] text-rose-gold/80 mx-2">✦</span>
+            <span className="font-jost italic text-[15px] text-blush/80">Dreaming big <span className="text-rose-gold">and</span> making it happen.</span>
+          </div>
+
+          {/* Closing line */}
+          <p className="font-cormorant italic text-[19px] text-rose-gold/85 text-center leading-relaxed max-w-[720px] mx-auto mb-8">
+            I believe both belong in the same room — and my job is to make sure they show up together in yours.
+          </p>
+
+          {/* Tagline */}
+          <div className="text-center">
+            <p className="font-cinzel-dec text-[18px] sm:text-[28px] text-blush tracking-wide leading-snug">
+              The Anchor Your Event Needs.
+            </p>
+            <p className="font-allura text-[32px] sm:text-[42px] text-rose-gold leading-tight">
+              The Gold Standard It Deserves.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Meet Abriana — Photo | Bio | Photo */}
+      <section aria-labelledby="abriana-heading">
+        <div className="border-t-4 border-b-4 border-plum">
+          <div className="flex flex-col lg:flex-row lg:items-stretch">
+
+            {/* 117 */}
+            <div className="w-full lg:w-[28%] lg:flex-shrink-0">
+              <img src="/images/about-117.jpg" alt="Abriana J. Allen" className="w-full block" />
+            </div>
+
+            <div className="hidden lg:block w-px bg-rose-gold flex-shrink-0" aria-hidden="true" />
+
+            {/* Bio */}
+            <div className="flex-1 bg-mauve-pink flex flex-col justify-center gap-6 px-8 sm:px-10 py-10 lg:py-12">
+              <div>
+                <h2 id="abriana-heading" className="font-cinzel font-bold text-[14px] tracking-cinzel uppercase text-plum/85 mb-2">The Heart of Anchor &amp; Gold</h2>
+                <h3 className="font-allura text-[42px] text-plum mb-1">Abriana J. Allen</h3>
+                <p className="font-cinzel font-bold text-[11px] tracking-cinzel uppercase text-plum/85 mb-6">Founder · Event Strategist · Experience Curator</p>
+                <div className="font-jost text-[17px] leading-relaxed text-plum/75 space-y-3">
+                  <p>I'm a planner to the core — driven by purpose, powered by spreadsheets, and known to bring both the calm and the confetti.</p>
+                  <p>For me, event planning is equal parts orchestration and heart work. I thrive in the details, love a good timeline, and take pride in being a trusted steward of each client's experience.</p>
+                  <p>I care deeply about doing my job well. I'm wired for organization. I notice the small things. I think ahead. When plans shift, I'm the problem-solver who gets us back on track — or figures out how we build a new track entirely.</p>
+                  <p>Clients often tell me, "You thought of everything," or "You took so much off our plates." That's the goal. Working with me means your event is in careful, capable hands.</p>
+                  <p>I'll bring the calm — and when the moment's right, a little confetti too.</p>
+                </div>
+              </div>
+              <div>
+                <div className="mb-4">
+                  <AJASignature />
+                </div>
+                <Link to="/contact" className="btn-plum">
+                  Work With Me
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                </Link>
+              </div>
+            </div>
+
+            <div className="hidden lg:block w-px bg-rose-gold flex-shrink-0" aria-hidden="true" />
+
+            {/* 121 */}
+            <div className="w-full lg:w-[28%] lg:flex-shrink-0">
+              <img src="/images/about-121.jpg" alt="Abriana J. Allen" className="w-full block" />
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* Divider */}
+      <div className="bg-mauve-pink flex items-center justify-center gap-3 py-2">
+        <span className="block w-48 border-t-2 border-plum/30" aria-hidden="true" />
+        <span className="text-plum/40 text-sm">✦</span>
+        <span className="block w-48 border-t-2 border-plum/30" aria-hidden="true" />
+      </div>
+
+      {/* Maya Angelou quote + video */}
+      <section className="bg-mauve-pink py-10 px-6" aria-label="Quote">
+        <div className="max-w-4xl mx-auto flex flex-col lg:flex-row items-center gap-10">
+          {/* Quote */}
+          <div className="flex-1 text-center lg:text-left">
+            <blockquote>
+              <p className="font-allura text-3xl text-plum leading-relaxed">
+                <span className="text-rose-gold text-5xl leading-none">"</span>My mission in life is not merely to survive, but to thrive; and to do so with some passion, some compassion, some humor, and some style.<span className="text-rose-gold text-5xl leading-none">"</span>
+              </p>
+              <cite className="block mt-6 font-cinzel text-[9px] tracking-cinzel uppercase text-plum not-italic">
+                — Maya Angelou
+              </cite>
+            </blockquote>
+          </div>
+
+          {/* Video */}
+          <div className="flex-shrink-0 w-full lg:w-80 p-3 border-4 border-plum">
+            <video
+              src="/videos/abriana-walk.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full"
+            />
+          </div>
+        </div>
+      </section>
+    </main>
+  )
+}
+
+/* ── AJA Handwriting Signature ──────────────────────────────── */
+const PATH_A1 = "M 37.5625 21.953125 C 31.75 21.953125 26.195312 20.984375 20.90625 19.046875 C 15.613281 17.109375 11.289062 14.019531 7.9375 9.78125 C 4.582031 5.550781 2.90625 0.175781 2.90625 -6.34375 C 2.90625 -7.9375 3.300781 -9.394531 4.09375 -10.71875 C 4.894531 -12.039062 5.644531 -12.703125 6.34375 -12.703125 C 7.757812 -12.703125 8.46875 -10.582031 8.46875 -6.34375 C 8.46875 -0.351562 11.023438 4.316406 16.140625 7.671875 C 20.191406 10.316406 25.660156 11.640625 32.546875 11.640625 C 39.421875 11.640625 46.5625 10.40625 53.96875 7.9375 C 61.375 5.46875 68.429688 1.941406 75.140625 -2.640625 C 83.078125 -7.929688 91.9375 -15.5625 101.71875 -25.53125 C 111.507812 -35.5 121.695312 -46.390625 132.28125 -58.203125 C 123.8125 -59.085938 115.390625 -60.054688 107.015625 -61.109375 C 98.640625 -62.171875 90.21875 -62.703125 81.75 -62.703125 C 76.101562 -62.703125 70.457031 -62.128906 64.8125 -60.984375 C 59.175781 -59.835938 54.0625 -57.675781 49.46875 -54.5 C 44.882812 -51.320312 41.445312 -46.648438 39.15625 -40.484375 C 38.976562 -39.773438 38.753906 -38.976562 38.484375 -38.09375 C 38.222656 -37.21875 38.09375 -36.335938 38.09375 -35.453125 C 38.09375 -33.691406 38.535156 -32.101562 39.421875 -30.6875 C 39.773438 -29.632812 39.953125 -29.019531 39.953125 -28.84375 C 39.953125 -27.25 39.242188 -26.453125 37.828125 -26.453125 C 36.597656 -26.453125 35.628906 -27.070312 34.921875 -28.3125 C 33.160156 -31.488281 32.28125 -35.546875 32.28125 -40.484375 C 32.28125 -49.828125 34 -56.96875 37.4375 -61.90625 C 40.875 -66.84375 45.503906 -70.191406 51.328125 -71.953125 C 57.148438 -73.722656 63.410156 -74.609375 70.109375 -74.609375 C 73.109375 -74.609375 76.238281 -74.472656 79.5 -74.203125 C 82.757812 -73.941406 85.976562 -73.632812 89.15625 -73.28125 C 96.914062 -72.570312 104.941406 -71.378906 113.234375 -69.703125 C 121.523438 -68.035156 129.816406 -66.316406 138.109375 -64.546875 C 147.273438 -75.304688 156.3125 -86.15625 165.21875 -97.09375 C 174.125 -108.03125 182.457031 -118.390625 190.21875 -128.171875 C 197.976562 -137.960938 204.59375 -146.390625 210.0625 -153.453125 C 210.238281 -153.972656 210.59375 -154.320312 211.125 -154.5 C 211.476562 -154.851562 211.742188 -155.03125 211.921875 -155.03125 C 213.859375 -156.09375 216.320312 -157.019531 219.3125 -157.8125 C 222.3125 -158.601562 224.34375 -159 225.40625 -159 C 227.164062 -159 228.046875 -158.03125 228.046875 -156.09375 C 228.046875 -155.5625 227.609375 -154.59375 226.734375 -153.1875 C 217.910156 -138.1875 210.367188 -122.835938 204.109375 -107.140625 C 197.847656 -91.453125 192.335938 -75.316406 187.578125 -58.734375 L 187.046875 -56.875 C 188.109375 -56.875 189.210938 -56.828125 190.359375 -56.734375 C 191.503906 -56.648438 192.515625 -56.609375 193.390625 -56.609375 C 200.972656 -56.085938 207.410156 -56.882812 212.703125 -59 C 216.585938 -60.40625 219.234375 -62.429688 220.640625 -65.078125 C 221.171875 -65.785156 221.613281 -66.140625 221.96875 -66.140625 C 222.851562 -66.140625 223.46875 -65.65625 223.8125 -64.6875 C 224.164062 -63.71875 224.082031 -62.789062 223.5625 -61.90625 C 221.613281 -58.550781 218.171875 -56.082031 213.234375 -54.5 C 210.410156 -53.257812 207.191406 -52.460938 203.578125 -52.109375 C 199.960938 -51.765625 196.21875 -51.679688 192.34375 -51.859375 L 190.75 -51.859375 L 187.578125 -52.125 L 185.984375 -52.125 C 183.335938 -42.414062 181.488281 -32.359375 180.4375 -21.953125 C 180.257812 -21.078125 180.171875 -20.238281 180.171875 -19.4375 C 180.171875 -18.644531 180.171875 -17.8125 180.171875 -16.9375 C 180.171875 -6.882812 182.90625 -1.859375 188.375 -1.859375 C 191.894531 -1.859375 196.078125 -3.441406 200.921875 -6.609375 C 205.773438 -9.785156 210.71875 -13.664062 215.75 -18.25 C 220.78125 -22.84375 225.320312 -27.382812 229.375 -31.875 C 233.425781 -36.375 236.425781 -39.945312 238.375 -42.59375 C 238.726562 -42.945312 239.253906 -43.125 239.953125 -43.125 C 241.722656 -43.125 242.253906 -42.15625 241.546875 -40.21875 C 241.191406 -39.6875 239.691406 -37.613281 237.046875 -34 C 234.398438 -30.382812 230.785156 -26.0625 226.203125 -21.03125 C 221.617188 -16.007812 216.238281 -11.023438 210.0625 -6.078125 C 205.125 -2.203125 200.226562 0.304688 195.375 1.453125 C 190.53125 2.597656 186.875 3.171875 184.40625 3.171875 C 179.46875 3.171875 175.539062 0.925781 172.625 -3.5625 C 169.71875 -8.0625 168.265625 -13.84375 168.265625 -20.90625 C 168.265625 -26.019531 168.789062 -31.304688 169.84375 -36.765625 C 170.90625 -42.234375 172.140625 -47.703125 173.546875 -53.171875 C 168.429688 -53.703125 163.226562 -54.273438 157.9375 -54.890625 C 152.644531 -55.515625 147.351562 -56.175781 142.0625 -56.875 C 131.488281 -44 120.953125 -31.960938 110.453125 -20.765625 C 99.960938 -9.566406 90.128906 -0.527344 80.953125 6.34375 C 74.078125 11.28125 66.976562 15.113281 59.65625 17.84375 C 52.332031 20.582031 44.96875 21.953125 37.5625 21.953125 Z M 174.609375 -58.203125 C 177.785156 -70.546875 181.535156 -82.9375 185.859375 -95.375 C 190.179688 -107.8125 194.457031 -119.144531 198.6875 -129.375 L 200.015625 -132.546875 C 192.429688 -121.960938 184.097656 -110.671875 175.015625 -98.671875 C 165.929688 -86.679688 156.710938 -74.78125 147.359375 -62.96875 C 151.941406 -62.082031 156.523438 -61.242188 161.109375 -60.453125 C 165.703125 -59.660156 170.203125 -58.910156 174.609375 -58.203125 Z M 174.609375 -58.203125"
+const PATH_J  = "M 31.21875 27.78125 C 24.519531 27.78125 19.140625 25.882812 15.078125 22.09375 C 11.023438 18.300781 9 13.226562 9 6.875 C 9 2.289062 10.273438 -2.910156 12.828125 -8.734375 C 15.390625 -14.554688 19.492188 -20.726562 25.140625 -27.25 C 37.128906 -41.1875 50.488281 -52.472656 65.21875 -61.109375 C 79.945312 -69.753906 95.863281 -76.8125 112.96875 -82.28125 C 114.550781 -86.507812 116.359375 -92.0625 118.390625 -98.9375 C 120.421875 -105.820312 122.847656 -113.097656 125.671875 -120.765625 C 128.492188 -128.441406 131.578125 -135.367188 134.921875 -141.546875 C 126.984375 -141.890625 118.601562 -141.578125 109.78125 -140.609375 C 100.96875 -139.640625 92.632812 -137.960938 84.78125 -135.578125 C 76.9375 -133.203125 70.585938 -129.941406 65.734375 -125.796875 C 60.890625 -121.648438 58.46875 -116.582031 58.46875 -110.59375 C 58.46875 -107.0625 59.476562 -104.191406 61.5 -101.984375 C 63.53125 -99.785156 65.820312 -98.066406 68.375 -96.828125 C 70.9375 -95.597656 72.925781 -94.539062 74.34375 -93.65625 C 75.570312 -92.945312 76.1875 -92.328125 76.1875 -91.796875 C 76.1875 -90.921875 75.304688 -90.75 73.546875 -91.28125 C 67.722656 -92.507812 62.695312 -95.546875 58.46875 -100.390625 C 54.238281 -105.242188 52.125 -110.671875 52.125 -116.671875 C 51.769531 -123.367188 53.441406 -129.007812 57.140625 -133.59375 C 60.847656 -138.1875 65.875 -141.9375 72.21875 -144.84375 C 78.570312 -147.757812 85.71875 -149.878906 93.65625 -151.203125 C 101.59375 -152.523438 109.617188 -153.1875 117.734375 -153.1875 C 122.140625 -153.1875 126.367188 -153.050781 130.421875 -152.78125 C 134.484375 -152.519531 138.363281 -152.035156 142.0625 -151.328125 C 144.007812 -153.617188 146.128906 -155.46875 148.421875 -156.875 C 150.710938 -158.289062 153.09375 -159 155.5625 -159 C 157.5 -159 158.46875 -158.382812 158.46875 -157.15625 C 158.46875 -155.738281 157.5 -154.851562 155.5625 -154.5 C 153.09375 -154.144531 150.625 -152.644531 148.15625 -150 C 150.445312 -149.300781 152.601562 -148.597656 154.625 -147.890625 C 156.65625 -147.179688 158.554688 -146.390625 160.328125 -145.515625 C 161.378906 -144.984375 162.742188 -143.832031 164.421875 -142.0625 C 166.097656 -140.300781 166.9375 -138.984375 166.9375 -138.109375 C 166.9375 -137.222656 166.320312 -136.78125 165.09375 -136.78125 C 164.382812 -136.78125 163.5 -136.867188 162.4375 -137.046875 C 161.382812 -137.222656 160.0625 -137.578125 158.46875 -138.109375 C 154.238281 -139.515625 149.035156 -140.484375 142.859375 -141.015625 C 140.921875 -136.078125 138.984375 -130.34375 137.046875 -123.8125 C 135.109375 -117.289062 133.300781 -110.765625 131.625 -104.234375 C 129.945312 -97.710938 128.222656 -91.628906 126.453125 -85.984375 C 135.453125 -88.453125 142.507812 -89.6875 147.625 -89.6875 C 149.738281 -89.6875 151.148438 -89.421875 151.859375 -88.890625 C 152.566406 -88.359375 152.921875 -87.65625 152.921875 -86.78125 C 152.921875 -85.1875 152.300781 -84.65625 151.0625 -85.1875 C 150.007812 -85.539062 148.773438 -85.71875 147.359375 -85.71875 C 144.890625 -85.71875 141.976562 -85.363281 138.625 -84.65625 C 135.28125 -83.957031 132.238281 -82.945312 129.5 -81.625 C 126.769531 -80.300781 125.050781 -78.753906 124.34375 -76.984375 C 117.289062 -57.765625 109.660156 -41.453125 101.453125 -28.046875 C 93.253906 -14.640625 84.921875 -3.835938 76.453125 4.359375 C 67.992188 12.566406 59.882812 18.519531 52.125 22.21875 C 44.363281 25.925781 37.394531 27.78125 31.21875 27.78125 Z M 36.515625 20.375 C 43.035156 20.375 49.515625 17.859375 55.953125 12.828125 C 62.390625 7.804688 68.519531 1.324219 74.34375 -6.609375 C 80.164062 -14.546875 85.546875 -23.007812 90.484375 -32 C 95.421875 -41 99.648438 -49.554688 103.171875 -57.671875 C 106.703125 -65.785156 109.347656 -72.3125 111.109375 -77.25 C 96.648438 -72.488281 83.25 -66.140625 70.90625 -58.203125 C 58.5625 -50.265625 47.535156 -40.300781 37.828125 -28.3125 C 32.535156 -21.78125 28.695312 -15.648438 26.3125 -9.921875 C 23.9375 -4.191406 22.75 0.789062 22.75 5.03125 C 22.75 9.789062 23.984375 13.535156 26.453125 16.265625 C 28.921875 19.003906 32.273438 20.375 36.515625 20.375 Z M 36.515625 20.375"
+
+function AJASignature() {
+  const svgRef = useRef<SVGSVGElement>(null)
+  const p0 = useRef<SVGPathElement>(null)
+  const p1 = useRef<SVGPathElement>(null)
+  const p2 = useRef<SVGPathElement>(null)
+
+  useEffect(() => {
+    const svg = svgRef.current
+    const paths = [p0.current, p1.current, p2.current]
+    if (!svg || paths.some(p => !p)) return
+
+    const els = paths as SVGPathElement[]
+
+    // Fill each letter immediately but hide via left-to-right clip
+    els.forEach(p => {
+      p.style.fill = '#43254A'
+      p.style.stroke = 'none'
+      p.style.clipPath = 'inset(0 100% 0 0)'
+    })
+
+    const run = () => {
+      const DRAW = 900
+      els.forEach((p, i) => {
+        p.animate(
+          [{ clipPath: 'inset(0 100% 0 0)' }, { clipPath: 'inset(0 0% 0 0)' }],
+          { duration: DRAW, delay: i * DRAW, easing: 'linear', fill: 'forwards' }
+        ).onfinish = () => { p.style.clipPath = 'none' }
+      })
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { observer.disconnect(); run() } },
+      { threshold: 0.3 }
+    )
+    observer.observe(svg)
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <svg
+      ref={svgRef}
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 555 316.499991"
+      height={80}
+      style={{ width: 'auto', display: 'block' }}
+      aria-label="A.J.A. initials"
+    >
+      <defs>
+        <clipPath id="aja-clip">
+          <rect x="0" width="519" y="0" height="316" />
+        </clipPath>
+      </defs>
+      <g transform="matrix(1, 0, 0, 1, 29, 0)">
+        <g clipPath="url(#aja-clip)">
+          <g transform="translate(1.230838, 203.805329)">
+            <path ref={p0} d={PATH_A1} />
+          </g>
+          <g transform="translate(172.387153, 203.805329)">
+            <path ref={p1} d={PATH_J} />
+          </g>
+          <g transform="translate(271.058639, 203.805329)">
+            <path ref={p2} d={PATH_A1} />
+          </g>
+        </g>
+      </g>
+    </svg>
+  )
+}

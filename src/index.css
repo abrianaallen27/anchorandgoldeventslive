@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Amsterdam Four';
+  src: url('/fonts/amsterdam-four.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-blush font-jost text-plum; }
+}
+
+@layer components {
+  /* Section title in Cinzel */
+  .section-label {
+    @apply font-cinzel text-xs tracking-cinzel uppercase text-plum;
+  }
+
+  /* Rose gold divider line */
+  .divider {
+    @apply block mx-auto mt-2 mb-8 w-10 border-t border-rose-gold;
+  }
+
+  /* Primary CTA — Ink Plum bg */
+  .btn-plum {
+    @apply inline-flex items-center gap-3 bg-plum text-blush font-cinzel text-[10px] tracking-cinzel uppercase px-7 py-4
+           hover:bg-plum/80 transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-plum;
+  }
+
+  /* Outline CTA */
+  .btn-outline-plum {
+    @apply inline-flex items-center gap-3 border border-plum text-plum font-cinzel text-[10px] tracking-cinzel uppercase px-7 py-4
+           hover:bg-plum hover:text-blush transition-colors duration-200;
+  }
+
+  /* White CTA (on dark bg) */
+  .btn-outline-blush {
+    @apply inline-flex items-center gap-3 border border-blush text-blush font-cinzel text-[10px] tracking-cinzel uppercase px-7 py-4
+           hover:bg-blush hover:text-plum transition-colors duration-200;
+  }
+
+  .field-label {
+    @apply block font-cinzel font-bold text-[11px] tracking-cinzel uppercase text-plum mb-2;
+  }
+
+  .field-input {
+    @apply w-full bg-transparent border border-soft-mauve/60 px-4 py-3 font-jost text-[16px] text-plum
+           placeholder:text-plum/30 focus:outline-none focus:border-plum transition-colors;
+  }
+}
+
+@keyframes carousel-fade {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.carousel-fade {
+  animation: carousel-fade 0.9s ease forwards;
+}
