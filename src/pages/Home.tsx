@@ -14,11 +14,8 @@ function Hero() {
           The Gold Standard It Deserves.
         </h2>
         <span className="block w-10 border-t border-rose-gold mb-7" aria-hidden="true" />
-        <p className="font-jost text-[16px] leading-relaxed text-plum/80 mb-4 max-w-sm">
-          Anchor &amp; Gold Events is a full-service event planning company built for clients who want their event done right — and done without the stress landing on them.
-        </p>
         <p className="font-jost text-[16px] leading-relaxed text-plum/80 mb-6 max-w-sm">
-          Whether you want a true planning partner or someone to take the reins entirely, I adjust to your style and hold every detail to a standard that speaks for itself.
+          Anchor &amp; Gold Events is a full-service event planning company built for clients who want their event handled with care and skill — and done without all the stress landing on them. Whether you want a true planning partner or someone to take the reins entirely, I adjust to your style and hold every detail to a standard that speaks for itself.
         </p>
         <p className="font-cormorant italic text-lg text-plum mb-8">When you're ready, so am I.</p>
         <Link to="/contact" className="btn-plum self-start">
@@ -329,12 +326,12 @@ const testimonials = [
     img: '/images/testimonials/Tangie G.jpg',
   },
   {
-    quote: "We had to part ways with a different planner about 60 days before our wedding, and I was PANICKED. Abriana jumped in without a second thought and helped pull off the celebration I envisioned. Her quick thinking and thoughtful coordination of vendors and timeline turned a stressful situation into a beautiful and seamless celebration.",
+    quote: "We had to part ways with a different planner about 60 days before our wedding, and I was PANICKED. Abriana jumped in without a second thought and helped pull off the celebration I envisioned. She came with a sense of calm and immediate problem-solving. Her quick thinking and thoughtful coordination of vendors and timeline turned a stressful situation into a beautiful and seamless celebration. I'm so grateful and would definitely recommend her services.",
     name: 'Fai T.',
     img: '/images/testimonials/Fai T.jpg',
   },
   {
-    quote: "Abriana really has an eye and mind for creative details, and I love how quickly she brought a couple of last minute details to life to round out our big day.",
+    quote: "Abriana really has an eye and mind for creative details, and I loved how quickly she brought a couple of last-minute ideas to life to round out our big day. In the weeks leading up to our wedding, she was an invaluable sounding board, helping me think through details and frankly, providing moral support. Her thoughtful ideas added those finishing touches I hadn't thought about and didn't have time to make a reality. They made our wedding feel even more unique and complete. We are so thankful for her support and creativity.",
     name: 'Jade G.',
     img: '/images/testimonials/Jade G.jpeg',
   },

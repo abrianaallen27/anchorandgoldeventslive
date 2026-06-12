@@ -5,10 +5,11 @@ const packages = [
   {
     name: 'The Anchor',
     subtitle: 'Event Management & Day-Of Coordination',
-    price: 'Starting at $1,500',
+    price: 'Starting at $1,700',
     description: 'For the client who has planned their event and needs a steady, professional hand to execute it flawlessly. I step in to refine your timeline, confirm every vendor, align all logistics, and lead your event day from start to finish — so you can be fully present for the moments that matter.',
     included: '12–15 hours of service covering the final 4–6 weeks and full event day management (up to 8 hours on-site), timeline creation and refinement, vendor confirmation calls, rehearsal attendance, and one pre-event walkthrough.',
     moves: 'Guest count over 100 · Multiple venues or locations · Event day beyond 8 hours · Additional coordinator needed · Complex vendor logistics',
+    ctaParam: 'The Anchor (Day-Of Coordination)',
   },
   {
     name: 'The Anchor & Gold',
@@ -16,43 +17,47 @@ const packages = [
     price: 'Starting at $2,750',
     description: "The best of both worlds — you've started the process, and now you want a partner to help you finish it right. I come in 3–6 months out, assess what's in place, source what's missing, sharpen the vision, and carry it through to a seamlessly executed event day.",
     included: '20–25 hours of service covering vendor sourcing and management (up to 5 vendors), design direction, timeline development, planning check-ins, and full event day management.',
-    moves: 'Guest count over 100 · More than 5 vendors to source · Extended planning timeline · Design complexity · Rehearsal dinner or secondary event coordination',
+    moves: 'Guest count over 150 · More than 5 vendors to source · Extended planning timeline · Design complexity · Rehearsal dinner or secondary event coordination',
+    ctaParam: 'The Anchor & Gold (Partial Planning)',
   },
   {
     name: 'The Gold Standard',
     subtitle: 'Full-Service Event Planning',
     price: 'Starting at $5,500',
     featured: true,
-    description: 'This is the full experience — start to finish, vision to execution. I guide the concept, build the plan, manage every vendor and moving part, and lead your event day with the same level of care and accountability I bring to every detail.',
-    included: '40–50 hours of service covering complete planning from first conversation through post-event wrap-up, vendor sourcing and management, budget tracking, timeline and logistics development, and full event day leadership. Based on a standard event up to 75 guests, single venue, Omaha metro.',
-    moves: '76–150 guests ($6,500+) · 151–250 guests ($8,500+) · Multiple events within the engagement · Production or design intensity · Extended planning timeline · Travel outside the Omaha metro',
+    description: 'This is the full experience — start to finish, vision to execution. I guide the concept, build the plan, manage every vendor and moving part, and lead your event day with the same level of care and accountability I bring to every detail. Whether you want a true collaborative partner or someone to simply take the reins, I adjust to your style and hold everything to a standard that speaks for itself.',
+    included: '40–50 hours of service covering complete planning from first conversation through post-event wrap-up, vendor sourcing and management, budget tracking, timeline and logistics development, and full event day leadership. Based on a standard event up to 150 guests, single venue, Omaha metro.',
+    moves: 'Guest count over 150 · Multiple events within the engagement · Production or design intensity · Extended planning timeline · Travel outside the Omaha metro',
+    ctaParam: 'The Gold Standard (Full-Service Planning)',
   },
   {
     name: 'The Vision & Compass',
     subtitle: 'Event Vision & Experience Development',
-    price: 'Starting at $1,200',
-    description: "You bring the vision. I bring the compass. Together we shape and refine your direction so every detail connects with clarity and purpose — from guest flow to aesthetic alignment.",
-    included: '8–12 hours covering concept development, aesthetic direction, guest experience mapping, and a fully documented plan your vendors can work from.',
+    price: 'Starting at $500',
+    description: "You bring the vision. I bring the compass. Together we shape and refine your direction so every detail connects with clarity and purpose — from guest flow to aesthetic alignment. The result is a clear, confident plan that you and your vendors can execute with intention.",
+    included: '4–6 hours covering concept development, aesthetic direction, guest experience mapping, and a fully documented plan your vendors can work from.',
     moves: 'Revision rounds beyond two · Complex or multi-layered vision · Scope of vendor briefing materials · Integration with ongoing planning support',
+    ctaParam: 'The Vision & Compass (Vision & Experience Development)',
   },
   {
     name: 'The Golden Anchor',
     subtitle: 'Custom Event Support',
-    price: 'Starting at $750',
+    price: 'Pricing is determined following initial consultation',
     description: [
       "Your event. Your people. Your moment. Some celebrations don't fit neatly into a category — and they don't have to. Whether it's a community fundraiser, a privately hosted celebration, or something entirely your own, I'll build a scope that meets you exactly where you are and holds everything to the same gold standard.",
       "Birthdays, baby showers, bridal showers, graduation parties, engagement parties, themed gatherings — if you're hosting at home and want the experience to feel effortless and intentional, I can help with everything from décor and tablescape design to vendor sourcing, rental coordination, catering, party favors, and more. You focus on your guests. I'll handle the rest.",
     ],
     included: 'Scoped in full following your initial consultation. No assumptions, no surprises — just a clear agreement built around your actual event.',
-    moves: 'Everything is determined together. Typical social event full planning ranges from $1,500–$2,250+ depending on guest count, design intensity, and vendor coordination needs.',
+    moves: "Everything is determined together, depending on guest count, design intensity, and vendor coordination needs. Non-profit and community organization rates reflect a meaningful discount from standard pricing as part of Anchor & Gold's commitment to the communities we serve.",
+    ctaParam: 'The Golden Anchor (Custom Event Support)',
   },
 ]
 
 const addOns = [
-  { service: 'Rehearsal dinner or next-day event coordination', price: '$400' },
+  { service: 'Rehearsal dinner or next-day event coordination', price: 'From $400' },
   { service: 'Additional on-site coordinator', price: '$250 per event' },
   { service: 'Hourly consulting (standalone, 3-hour minimum)', price: '$125/hr' },
-  { service: 'Rush booking (within 60 days of event)', price: '$150/hr' },
+  { service: 'Rush booking (within 30 days of event)', price: '$150/hr' },
   { service: 'Extended event day hours (beyond package baseline)', price: '$125/hr' },
 ]
 
@@ -69,10 +74,10 @@ function PackageCard({ pkg }: { pkg: typeof packages[0] }) {
       <div className="p-6 md:p-10">
         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-5">
           <div>
-            <h2 className="font-cinzel text-sm tracking-cinzel uppercase text-blush">{pkg.name}</h2>
-            <p className="font-cormorant italic text-xl text-rose-gold mt-1">{pkg.subtitle}</p>
+            <h2 className="font-cinzel-dec text-base tracking-wide text-blush">{pkg.name}</h2>
+            <p className="font-cormorant italic text-lg text-rose-gold mt-1">{pkg.subtitle}</p>
           </div>
-          <span className="font-cormorant text-2xl text-blush sm:flex-shrink-0">{pkg.price}</span>
+          <span className="font-cormorant text-lg text-blush/70 sm:flex-shrink-0">{pkg.price}</span>
         </div>
 
         <div className="font-jost text-base leading-relaxed text-blush/75 mb-6 space-y-3">
@@ -104,6 +109,15 @@ function PackageCard({ pkg }: { pkg: typeof packages[0] }) {
             </div>
           </div>
         )}
+
+        <div className="mt-6 pt-5 border-t border-blush/10">
+          <Link
+            to={`/contact?package=${encodeURIComponent(pkg.ctaParam)}`}
+            className="btn-outline-blush inline-flex"
+          >
+            Get Started <ArrowRight />
+          </Link>
+        </div>
       </div>
     </div>
   )
@@ -122,10 +136,10 @@ export default function Packages() {
     <main className="bg-blush">
 
       {/* Header */}
-      <section className="bg-plum py-12 md:py-20 px-4 md:px-6 text-center">
-        <h1 className="font-cinzel text-lg md:text-xl tracking-cinzel uppercase text-blush mb-1">Packages &amp; Pricing</h1>
-        <span className="block mx-auto mt-2 mb-6 w-10 border-t border-rose-gold" aria-hidden="true" />
-        <p className="font-cormorant italic text-2xl md:text-3xl text-blush/70 max-w-md mx-auto">
+      <section className="bg-plum py-8 md:py-12 px-4 md:px-6 text-center">
+        <h1 className="font-cinzel text-base md:text-lg tracking-cinzel uppercase text-blush mb-1">Packages &amp; Pricing</h1>
+        <span className="block mx-auto mt-2 mb-4 w-10 border-t border-rose-gold" aria-hidden="true" />
+        <p className="font-cormorant italic text-xl md:text-2xl text-blush/70 max-w-md mx-auto">
           Flexible support for events of all sizes and styles.
         </p>
       </section>
@@ -136,13 +150,7 @@ export default function Packages() {
         <Strip src="/images/pkg-strip-right.png" side="right" />
 
         <div className="relative z-10 max-w-3xl mx-auto px-4 md:px-6 flex flex-col gap-6">
-          <div className="text-center">
-            <Link to="/contact" className="btn-plum">Let's Get Started <ArrowRight /></Link>
-          </div>
           {packages.map((pkg) => <PackageCard key={pkg.name} pkg={pkg} />)}
-          <div className="text-center">
-            <Link to="/contact" className="btn-plum">Let's Get Started <ArrowRight /></Link>
-          </div>
         </div>
       </section>
 
@@ -167,24 +175,26 @@ export default function Packages() {
             ))}
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="flex flex-col gap-4">
             {[
               {
                 title: 'Travel & Away Events',
-                body: 'Anchor & Gold is based in Omaha, Nebraska. For events outside the metro, travel and accommodation costs are quoted individually. Have your heart set on a venue outside Omaha? Reach out — we\'ll make it work.',
+                body: "Anchor & Gold is based in Omaha, Nebraska and proudly serves the greater metro area. For events outside the Omaha metro — including clients whose celebration takes them to another city, state, or country — travel, accommodation, and any additional coordination costs are quoted individually based on location and event scope. This is discussed during your initial consultation so there are never any surprises.",
               },
               {
                 title: 'Transparency Is Part of the Standard',
-                body: 'Every package comes with a clearly defined scope so you always know what\'s included, what\'s not, and what would change your investment. Change orders are always discussed before they\'re applied.',
+                body: "Every package comes with a clearly defined scope so you always know what's included, what's not, and what would change your investment. If something shifts — in your vision, your guest count, your needs — we'll have that conversation openly and adjust together. Change orders are always discussed before they're applied. All pricing reflects planning labor and management only. Rental, production, and décor hard costs are passed through directly at cost.",
               },
               {
                 title: 'A Note on Vendor Relationships',
-                body: 'Anchor & Gold does not accept commissions or undisclosed markups from vendors. Any preferred vendor relationship will always be disclosed to you directly. Your trust is the foundation this business is built on.',
+                body: "Anchor & Gold Events Co. does not accept commissions or undisclosed markups from vendors. Any preferred vendor relationship will always be disclosed to you directly. Your trust is the foundation this business is built on.",
               },
             ].map((item) => (
-              <div key={item.title} className="bg-blush border border-rose-gold/40 p-6">
-                <h3 className="font-cinzel text-xs tracking-cinzel uppercase text-plum mb-3">{item.title}</h3>
-                <span className="block w-6 border-t border-rose-gold mb-4" aria-hidden="true" />
+              <div key={item.title} className="bg-blush border border-rose-gold/40 p-6 flex flex-col sm:flex-row gap-6 items-start">
+                <div className="flex-shrink-0 sm:w-52">
+                  <h3 className="font-cinzel text-xs tracking-cinzel uppercase text-plum mb-3">{item.title}</h3>
+                  <span className="block w-6 border-t border-rose-gold" aria-hidden="true" />
+                </div>
                 <p className="font-jost text-base leading-relaxed text-plum/70">{item.body}</p>
               </div>
             ))}

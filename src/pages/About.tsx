@@ -7,7 +7,7 @@ export default function About() {
       {/* Hero */}
       <section className="flex flex-col lg:flex-row items-stretch" aria-label="About hero">
         {/* Left — copy */}
-        <div className="flex flex-col items-center justify-center bg-mauve-pink w-full lg:w-[40%] p-6 md:p-10 lg:p-12">
+        <div className="flex flex-col items-center justify-center bg-mauve-pink w-full lg:w-[55%] p-6 md:p-10 lg:p-12">
           <p className="font-cinzel-dec text-[13px] text-plum/75 tracking-[0.1em] mb-3">
             T<span style={{ letterSpacing: '0.22em' }}>h</span>e Philosophy
           </p>
@@ -31,12 +31,12 @@ export default function About() {
           </div>
         </div>
 
-        {/* Right — photo, uncropped */}
-        <div className="w-full lg:w-[60%] bg-white flex items-center justify-center">
+        {/* Right — photo, full bleed */}
+        <div className="w-full lg:w-[45%] flex-shrink-0 max-h-72 lg:max-h-none overflow-hidden">
           <img
             src="/images/about-hero.jpg"
             alt="Abriana J. Allen at her Anchor & Gold Events desk"
-            className="w-full"
+            className="w-full h-full object-cover object-center"
           />
         </div>
       </section>
@@ -77,7 +77,7 @@ export default function About() {
 
           {/* Ands intro */}
           <p className="font-jost text-[17px] text-blush/70 text-center leading-[1.6] mb-[14px]">
-            That ampersand-anchor symbol? That's the heart of it. I live in the "ands."
+            That ampersand-anchor symbol? That's the heart of it. I believe in the "ands."
           </p>
 
           {/* Ands row */}
@@ -93,7 +93,7 @@ export default function About() {
 
           {/* Closing line */}
           <p className="font-cormorant italic text-[19px] text-rose-gold/85 text-center leading-relaxed max-w-[720px] mx-auto mb-8">
-            I believe both belong in the same room — and my job is to make sure they show up together in yours.
+            I believe both can belong in the same room. My job is to make sure they show up together in the way that you want for your event.
           </p>
 
           {/* Tagline */}
@@ -115,13 +115,13 @@ export default function About() {
           <div className="flex flex-col lg:flex-row lg:items-start">
 
             {/* 117 — divider lives inside, spans photo height only */}
-            <div className="relative w-full lg:w-[28%] lg:flex-shrink-0">
+            <div className="relative w-full lg:w-[28%] lg:flex-shrink-0 lg:sticky lg:top-[52px] lg:self-start">
               <img src="/images/about-117.jpg" alt="Abriana J. Allen" className="w-full block" />
               <div className="hidden lg:block absolute top-0 right-0 w-px h-full bg-rose-gold" aria-hidden="true" />
             </div>
 
             {/* Bio */}
-            <div className="flex-1 bg-mauve-pink flex flex-col justify-start px-6 md:px-10 py-8 lg:py-10">
+            <div className="flex-1 bg-mauve-pink flex flex-col justify-center px-6 md:px-10 py-8 lg:py-10">
               <div className="mb-6">
                 <h2 id="abriana-heading" className="font-cinzel font-bold text-[14px] tracking-cinzel uppercase text-plum/85 mb-2">The Heart of Anchor &amp; Gold</h2>
                 <h3 className="font-allura text-[42px] text-plum mb-1">Abriana J. Allen</h3>
@@ -130,7 +130,8 @@ export default function About() {
                   <p>I'm a planner to the core — driven by purpose, powered by spreadsheets, and known to bring both the calm and the confetti.</p>
                   <p>For me, event planning is equal parts orchestration and heart work. I thrive in the details, love a good timeline, and take pride in being a trusted steward of each client's experience.</p>
                   <p>I care deeply about doing my job well. I'm wired for organization. I notice the small things. I think ahead. When plans shift, I'm the problem-solver who gets us back on track — or figures out how we build a new track entirely.</p>
-                  <p>Clients often tell me, "You thought of everything," or "You took so much off our plates." That's the goal. Working with me means your event is in careful, capable hands.</p>
+                  <p>My background spans years of navigating complex, large-scale operations, managing logistics, coordinating moving parts, and keeping people and processes aligned under pressure. Anchor &amp; Gold is where all of that comes together for me. The instinct for celebrations — making sure the details are right, the room feels intentional, and everyone can just show up and enjoy themselves — that's always been part of who I am.</p>
+                  <p>Clients often tell me, "You thought of everything," or "You took so much off our plates." That's the goal. Working with me means your event is in careful, capable hands. I can't wait to hear about yours.</p>
                   <p>I'll bring the calm — and when the moment's right, a little confetti too.</p>
                 </div>
               </div>
@@ -140,7 +141,7 @@ export default function About() {
             </div>
 
             {/* 121 — divider lives inside, spans photo height only */}
-            <div className="relative w-full lg:w-[28%] lg:flex-shrink-0">
+            <div className="relative w-full lg:w-[28%] lg:flex-shrink-0 lg:sticky lg:top-[52px] lg:self-start">
               <img src="/images/about-121.jpg" alt="Abriana J. Allen" className="w-full block" />
               <div className="hidden lg:block absolute top-0 left-0 w-px h-full bg-rose-gold" aria-hidden="true" />
             </div>
@@ -158,7 +159,7 @@ export default function About() {
 
       {/* Maya Angelou quote + video */}
       <section className="bg-mauve-pink py-10 px-4 md:px-6" aria-label="Quote">
-        <div className="flex flex-col lg:flex-row items-center gap-10">
+        <div className="max-w-4xl mx-auto flex flex-col lg:flex-row items-center gap-10">
           {/* Quote */}
           <div className="flex-1 text-center lg:text-left">
             <blockquote>
@@ -193,7 +194,7 @@ export default function About() {
         <div className="absolute inset-0 opacity-10" aria-hidden="true">
           <img src="/images/garden-party.png" alt="" className="w-full h-full object-cover" />
         </div>
-        <div className="relative flex flex-col md:flex-row items-center justify-between gap-10">
+        <div className="relative max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
           <div>
             <h2 id="about-cta-heading" className="font-cormorant text-5xl font-light text-blush mb-4">Ready to start?</h2>
             <p className="font-jost text-[16px] text-blush/70 max-w-sm leading-relaxed">

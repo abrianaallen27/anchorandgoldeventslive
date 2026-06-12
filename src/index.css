@@ -60,6 +60,66 @@
   }
 }
 
+/* ── Sticky shrinking nav ──────────────────────────────────── */
+.ag-nav {
+  background-color: #F0E2E5;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ag-nav-inner {
+  height: 56px;
+  transition: height 0.3s ease;
+}
+
+.ag-nav-logo-img {
+  height: 2.25rem;
+  transition: transform 0.3s ease;
+}
+
+.ag-nav-link {
+  display: inline-block;
+  padding: 0 24px;
+  transition: padding 0.3s ease;
+}
+
+.ag-nav-cta {
+  padding: 10px 20px;
+  transition: padding 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .ag-nav-inner {
+    height: 80px;
+  }
+
+  .ag-nav-logo-img {
+    height: 3.75rem;
+  }
+
+  /* Scrolled state — desktop only */
+  .ag-nav.scrolled {
+    background-color: rgba(240, 226, 229, 0.97);
+    box-shadow: 0 2px 12px rgba(67, 37, 74, 0.08);
+  }
+
+  .ag-nav.scrolled .ag-nav-inner {
+    height: 52px;
+  }
+
+  .ag-nav.scrolled .ag-nav-logo-img {
+    transform: scale(0.75);
+    transform-origin: left center;
+  }
+
+  .ag-nav.scrolled .ag-nav-link {
+    padding: 0 16px;
+  }
+
+  .ag-nav.scrolled .ag-nav-cta {
+    padding: 8px 16px;
+  }
+}
+
 @keyframes carousel-fade {
   from { opacity: 0; transform: translateX(40px); }
   to   { opacity: 1; transform: translateX(0); }
