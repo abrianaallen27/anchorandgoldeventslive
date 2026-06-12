@@ -87,7 +87,7 @@ app.post('/api/send', async (req, res) => {
   try {
     const { error } = await resend.emails.send({
       from:     'Anchor & Gold Website <hello@anchorandgoldevents.com>',
-      to:       'abriana@anchorandgoldevents.com',
+      to:       'hello@anchorandgoldevents.com',
       replyTo:  from_email,
       subject:  `New Consultation Request — ${from_name}`,
       html,

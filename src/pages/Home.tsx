@@ -40,7 +40,7 @@ function Hero() {
       </div>
 
       {/* Mobile bg */}
-      <div className="absolute inset-0 -z-10 lg:hidden" aria-hidden="true">
+      <div className="absolute inset-0 z-0 lg:hidden" aria-hidden="true">
         <img
           src="/images/hero-rooftop.png"
           alt=""
@@ -66,34 +66,34 @@ const eventSlides = [
 ]
 
 function EventsBuiltFor() {
-  const [index, setIndex] = useState(0)
+  const [page, setPage] = useState(0)
   const paused = useRef(false)
 
   const total = eventSlides.length
-  const prev = () => setIndex((i) => (i - 3 + total) % total)
-  const next = () => setIndex((i) => (i + 3) % total)
+  const pageCount = Math.ceil(total / 3)
+  const prev = () => setPage((p) => (p - 1 + pageCount) % pageCount)
+  const next = () => setPage((p) => (p + 1) % pageCount)
 
   useEffect(() => {
     const id = setInterval(() => {
-      if (!paused.current) setIndex((i) => (i + 3) % total)
+      if (!paused.current) setPage((p) => (p + 1) % pageCount)
     }, 5000)
     return () => clearInterval(id)
-  }, [total])
+  }, [pageCount])
 
-  // visible window: show up to 3 cards, wrapping around
-  const visible = [0, 1, 2].map((offset) => eventSlides[(index + offset) % total])
+  const visible = [0, 1, 2].map((offset) => eventSlides[(page * 3 + offset) % total])
 
   return (
     <section className="bg-plum py-16 px-2" aria-labelledby="events-heading">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-10">
-          <h2 id="events-heading" className="font-cinzel text-xs tracking-cinzel uppercase text-blush mb-1">
-            Events I'm Built For
+          <h2 id="events-heading" className="font-cinzel-dec text-2xl md:text-3xl text-blush mb-2">
+            Event Types
           </h2>
           <span className="block mx-auto mt-2 mb-4 w-10 border-t border-rose-gold" aria-hidden="true" />
-          <p className="font-cormorant italic text-2xl text-rose-gold">
-            Big moments. Tiny Details. I'm equally obsessed with both.
+          <p className="font-cormorant italic text-lg md:text-xl text-rose-gold">
+            Any Occasion. Every Detail.
           </p>
         </div>
 
@@ -113,7 +113,7 @@ function EventsBuiltFor() {
           </button>
 
           {/* Cards */}
-          <div key={index} className="carousel-fade flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 overflow-hidden">
+          <div key={page} className="carousel-fade flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 overflow-hidden">
             {visible.map((slide, i) => (
               <div
                 key={`${slide.caption}-${i}`}
@@ -161,15 +161,15 @@ function EventsBuiltFor() {
 
         {/* Dot indicators */}
         <div className="flex items-center justify-center gap-2 mt-7" role="tablist">
-          {eventSlides.map((_, i) => (
+          {Array.from({ length: pageCount }, (_, i) => (
             <button
               key={i}
-              onClick={() => setIndex(i)}
+              onClick={() => setPage(i)}
               role="tab"
-              aria-selected={i === index}
-              aria-label={`Go to slide ${i + 1}`}
+              aria-selected={i === page}
+              aria-label={`Go to page ${i + 1}`}
               className={`w-1.5 h-1.5 rounded-full transition-colors duration-200 ${
-                i === index ? 'bg-rose-gold' : 'bg-blush/25 hover:bg-blush/50'
+                i === page ? 'bg-rose-gold' : 'bg-blush/25 hover:bg-blush/50'
               }`}
             />
           ))}
@@ -179,7 +179,18 @@ function EventsBuiltFor() {
   )
 }
 
-/* ── SIGNATURE SERVICES ───────��────────────────────────────── */
+/* ── SECTION DIVIDER ───────────────────────────────────────── */
+function SectionDivider() {
+  return (
+    <div className="bg-plum flex items-center gap-6 px-8 py-3" aria-hidden="true">
+      <span className="flex-1 h-px bg-rose-gold/25" />
+      <span className="text-rose-gold/50 text-sm">✦</span>
+      <span className="flex-1 h-px bg-rose-gold/25" />
+    </div>
+  )
+}
+
+/* ── SIGNATURE SERVICES ─────────────────────────────────────── */
 const services = [
   {
     title: 'Full-Service Event Planning',
@@ -204,7 +215,7 @@ const services = [
   {
     title: 'Custom Event Support',
     icon: <StarIcon />,
-    body: "Some events don't fit neatly into a category. And they don't have to. If your needs require a tailored blend of planning, coordination, and execution, I'll build a scope that meets you exactly where you are.",
+    body: "Some events don't fit neatly into a category — and they don't have to. Whether it's a community fundraiser, a privately hosted celebration, or something entirely your own, I'll build a scope that meets you exactly where you are. Birthdays, baby showers, themed gatherings, graduation parties — if you're hosting at home and want the experience to feel effortless and intentional, I can help with that too.",
   },
 ]
 
@@ -215,11 +226,11 @@ function SignatureServices() {
     <section className="bg-plum py-20 px-6" aria-labelledby="services-heading">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
-          <h2 id="services-heading" className="font-cinzel text-xs tracking-cinzel uppercase text-blush mb-1">
+          <h2 id="services-heading" className="font-cinzel-dec text-2xl md:text-3xl text-blush mb-2">
             Signature Services
           </h2>
           <span className="block mx-auto mt-2 mb-4 w-10 border-t border-rose-gold" aria-hidden="true" />
-          <p className="font-cormorant italic text-2xl text-blush/60">
+          <p className="font-cormorant italic text-lg md:text-xl text-blush/60">
             Here's how I can help.
           </p>
         </div>
@@ -262,8 +273,8 @@ function SignatureServices() {
         </div>
 
         <div className="text-center mt-12">
-          <Link to="/contact" className="btn-outline-blush inline-flex">
-            Book a Consultation <ArrowRight />
+          <Link to="/packages" className="btn-blush inline-flex">
+            Explore Packages &amp; Pricing <ArrowRight />
           </Link>
         </div>
       </div>
@@ -287,116 +298,6 @@ function StarIcon() {
   return <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
 }
 
-/* ─�� HOW IT WORKS ───────────────────────────��──────────────── */
-const steps = [
-  {
-    num: '01',
-    title: 'Initial Consultation',
-    body: `We start with a conversation — no pressure, no commitment. You share your vision, your questions, and what you're hoping to feel on event day. I listen, ask the right questions, and get a clear picture of what you need. This is where we figure out if we're the right fit.`,
-  },
-  {
-    num: '02',
-    title: 'Proposal & Agreement',
-    body: `I'll put together a clear scope of work that outlines exactly what I'll handle, how I'll handle it, and what it will cost. This is our time to agree on clear expectations for services, communication, and payments.`,
-  },
-  {
-    num: '03',
-    title: "Let's Make It Official",
-    body: "Once you've signed and your initial payment is confirmed, you're on my calendar and we are in motion. We'll establish a check-in cadence that works for you.",
-  },
-  {
-    num: '04',
-    title: 'Planning, Design & Progress Updates',
-    body: "I'll build your timeline, source and manage vendors, shape the experience, and keep you informed every step of the way. You'll always have visibility into where things stand.",
-  },
-  {
-    num: '05',
-    title: 'Final Confirmation',
-    body: "Vendors are confirmed, timelines are finalized, and every detail is accounted for. We'll do a virtual final check-in and in-person walkthrough where applicable. You'll go into event day knowing nothing has been left to chance.",
-  },
-  {
-    num: '06',
-    title: 'Event Day',
-    body: "This is your moment. I'm on the ground managing every moving part so you don't have to think about a single one. Show up, be present, and enjoy what you've been looking forward to.",
-  },
-  {
-    num: '07',
-    title: 'Post-Event Wrap-Up',
-    body: "When the last guest leaves, my job isn't quite done. I'll help tie up any loose ends and make sure everything ends as cleanly as it began.",
-  },
-]
-
-function HowItWorks() {
-  const [activeStep, setActiveStep] = useState<number | null>(null)
-
-  return (
-    <section className="bg-plum py-20 px-6" aria-labelledby="process-heading">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-14">
-          <h2 id="process-heading" className="font-cinzel text-xs tracking-cinzel uppercase text-blush mb-1">
-            So You Reach Out to Me...
-          </h2>
-          <p className="font-allura text-4xl text-rose-gold mt-1">then what?</p>
-        </div>
-
-        {/* Desktop timeline */}
-        <div className="hidden md:grid md:grid-cols-7 gap-4">
-          {steps.map((step, i) => (
-            <div
-              key={step.num}
-              className="flex flex-col items-center text-center cursor-pointer group"
-              onMouseEnter={() => setActiveStep(i)}
-              onMouseLeave={() => setActiveStep(null)}
-            >
-              {/* Circle */}
-              <div className={`w-10 h-10 rounded-full border flex items-center justify-center mb-3 transition-colors duration-200 ${
-                activeStep === i ? 'bg-rose-gold border-rose-gold' : 'border-rose-gold/60 bg-transparent'
-              }`}>
-                <span className="font-cinzel text-[9px] text-blush">{step.num}</span>
-              </div>
-              {/* Title */}
-              <h3 className={`font-cinzel text-[9px] tracking-cinzel uppercase leading-snug mb-2 transition-colors duration-200 ${
-                activeStep === i ? 'text-rose-gold' : 'text-blush'
-              }`}>
-                {step.title}
-              </h3>
-              {/* Body — visible on hover */}
-              <p className={`font-jost text-[10px] text-blush/60 leading-relaxed transition-all duration-300 overflow-hidden ${
-                activeStep === i ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'
-              }`}>
-                {step.body}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        {/* Mobile accordion */}
-        <div className="md:hidden flex flex-col gap-3">
-          {steps.map((step, i) => (
-            <div key={step.num} className="border border-blush/20">
-              <button
-                className="w-full flex items-center gap-4 px-5 py-4 text-left"
-                onClick={() => setActiveStep(activeStep === i ? null : i)}
-                aria-expanded={activeStep === i}
-              >
-                <span className="w-8 h-8 rounded-full border border-rose-gold/60 flex items-center justify-center flex-shrink-0">
-                  <span className="font-cinzel text-[8px] text-blush">{step.num}</span>
-                </span>
-                <span className="font-cinzel text-[9px] tracking-cinzel uppercase text-blush flex-1">{step.title}</span>
-                <span className={`text-rose-gold transition-transform duration-200 ${activeStep === i ? 'rotate-180' : ''}`}>↓</span>
-              </button>
-              {activeStep === i && (
-                <div className="px-5 pb-5">
-                  <p className="font-jost text-[15px] text-blush/60 leading-relaxed">{step.body}</p>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
 
 /* ── EVENT INSPIRATION ─────────────────────────────────────── */
 const galleryImages = [
@@ -489,7 +390,7 @@ function Testimonials() {
     <section className="bg-blush py-20 px-6" aria-labelledby="testimonials-heading">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
-          <h2 id="testimonials-heading" className="font-cinzel text-xs tracking-cinzel uppercase text-plum">What Clients Are Saying</h2>
+          <h2 id="testimonials-heading" className="font-cinzel-dec text-2xl md:text-3xl text-plum">What Clients Are Saying</h2>
           <span className="block mx-auto mt-2 mb-0 w-10 border-t border-rose-gold" aria-hidden="true" />
         </div>
 
@@ -501,7 +402,7 @@ function Testimonials() {
               <p className="font-jost text-[15px] leading-relaxed text-plum/80 flex-1">"{t.quote}"</p>
               <div className="flex items-center gap-3 mt-2">
                 <img src={t.img} alt={t.name} className="w-20 h-20 rounded-full object-cover" />
-                <span className="font-cormorant italic text-sm text-plum/60">— {t.name}</span>
+                <span className="font-allura text-2xl text-plum/60">— {t.name}</span>
               </div>
             </div>
           ))}
@@ -514,7 +415,7 @@ function Testimonials() {
             <p className="font-jost text-[16px] leading-relaxed text-plum/80">"{testimonials[active].quote}"</p>
             <div className="flex items-center gap-3">
               <img src={testimonials[active].img} alt={testimonials[active].name} className="w-20 h-20 rounded-full object-cover" />
-              <span className="font-cormorant italic text-sm text-plum/60">— {testimonials[active].name}</span>
+              <span className="font-allura text-2xl text-plum/60">— {testimonials[active].name}</span>
             </div>
           </div>
           <div className="flex items-center justify-center gap-3 mt-6">
@@ -544,11 +445,10 @@ export default function Home() {
     <>
       <Hero />
       <EventsBuiltFor />
+      <SectionDivider />
       <SignatureServices />
-      <HowItWorks />
-      <EventInspiration />
-      <ContactTeaser />
       <Testimonials />
+      <ContactTeaser />
     </>
   )
 }

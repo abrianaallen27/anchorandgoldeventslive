@@ -7,7 +7,7 @@ export default function About() {
       {/* Hero */}
       <section className="flex flex-col lg:flex-row items-stretch" aria-label="About hero">
         {/* Left — copy */}
-        <div className="flex flex-col items-center justify-center bg-mauve-pink w-full lg:w-[40%] p-12">
+        <div className="flex flex-col items-center justify-center bg-mauve-pink w-full lg:w-[40%] p-6 md:p-10 lg:p-12">
           <p className="font-cinzel-dec text-[13px] text-plum/75 tracking-[0.1em] mb-3">
             T<span style={{ letterSpacing: '0.22em' }}>h</span>e Philosophy
           </p>
@@ -42,8 +42,8 @@ export default function About() {
       </section>
 
       {/* Why Anchor & Gold */}
-      <section className="bg-plum py-[60px] px-6" aria-labelledby="why-heading">
-        <div className="max-w-[1200px] mx-auto">
+      <section className="bg-plum py-12 md:py-16 px-4 md:px-6" aria-labelledby="why-heading">
+        <div>
 
           {/* Header */}
           <h2 id="why-heading" className="font-cinzel-dec text-[28px] text-blush text-center leading-tight tracking-wide">
@@ -111,23 +111,22 @@ export default function About() {
 
       {/* Meet Abriana — Photo | Bio | Photo */}
       <section aria-labelledby="abriana-heading">
-        <div className="border-t-4 border-b-4 border-plum">
-          <div className="flex flex-col lg:flex-row lg:items-stretch">
+        <div className="border-t-4 border-plum bg-mauve-pink">
+          <div className="flex flex-col lg:flex-row lg:items-start">
 
-            {/* 117 */}
-            <div className="w-full lg:w-[28%] lg:flex-shrink-0">
+            {/* 117 — divider lives inside, spans photo height only */}
+            <div className="relative w-full lg:w-[28%] lg:flex-shrink-0">
               <img src="/images/about-117.jpg" alt="Abriana J. Allen" className="w-full block" />
+              <div className="hidden lg:block absolute top-0 right-0 w-px h-full bg-rose-gold" aria-hidden="true" />
             </div>
 
-            <div className="hidden lg:block w-px bg-rose-gold flex-shrink-0" aria-hidden="true" />
-
             {/* Bio */}
-            <div className="flex-1 bg-mauve-pink flex flex-col justify-center gap-6 px-8 sm:px-10 py-10 lg:py-12">
-              <div>
+            <div className="flex-1 bg-mauve-pink flex flex-col justify-start px-6 md:px-10 py-8 lg:py-10">
+              <div className="mb-6">
                 <h2 id="abriana-heading" className="font-cinzel font-bold text-[14px] tracking-cinzel uppercase text-plum/85 mb-2">The Heart of Anchor &amp; Gold</h2>
                 <h3 className="font-allura text-[42px] text-plum mb-1">Abriana J. Allen</h3>
                 <p className="font-cinzel font-bold text-[11px] tracking-cinzel uppercase text-plum/85 mb-6">Founder · Event Strategist · Experience Curator</p>
-                <div className="font-jost text-[17px] leading-relaxed text-plum/75 space-y-3">
+                <div className="font-jost text-base leading-relaxed text-plum/75 space-y-3">
                   <p>I'm a planner to the core — driven by purpose, powered by spreadsheets, and known to bring both the calm and the confetti.</p>
                   <p>For me, event planning is equal parts orchestration and heart work. I thrive in the details, love a good timeline, and take pride in being a trusted steward of each client's experience.</p>
                   <p>I care deeply about doing my job well. I'm wired for organization. I notice the small things. I think ahead. When plans shift, I'm the problem-solver who gets us back on track — or figures out how we build a new track entirely.</p>
@@ -135,22 +134,15 @@ export default function About() {
                   <p>I'll bring the calm — and when the moment's right, a little confetti too.</p>
                 </div>
               </div>
-              <div>
-                <div className="mb-4">
-                  <AJASignature />
-                </div>
-                <Link to="/contact" className="btn-plum">
-                  Work With Me
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                </Link>
+              <div className="mt-auto">
+                <AJASignature />
               </div>
             </div>
 
-            <div className="hidden lg:block w-px bg-rose-gold flex-shrink-0" aria-hidden="true" />
-
-            {/* 121 */}
-            <div className="w-full lg:w-[28%] lg:flex-shrink-0">
+            {/* 121 — divider lives inside, spans photo height only */}
+            <div className="relative w-full lg:w-[28%] lg:flex-shrink-0">
               <img src="/images/about-121.jpg" alt="Abriana J. Allen" className="w-full block" />
+              <div className="hidden lg:block absolute top-0 left-0 w-px h-full bg-rose-gold" aria-hidden="true" />
             </div>
 
           </div>
@@ -165,15 +157,15 @@ export default function About() {
       </div>
 
       {/* Maya Angelou quote + video */}
-      <section className="bg-mauve-pink py-10 px-6" aria-label="Quote">
-        <div className="max-w-4xl mx-auto flex flex-col lg:flex-row items-center gap-10">
+      <section className="bg-mauve-pink py-10 px-4 md:px-6" aria-label="Quote">
+        <div className="flex flex-col lg:flex-row items-center gap-10">
           {/* Quote */}
           <div className="flex-1 text-center lg:text-left">
             <blockquote>
               <p className="font-allura text-3xl text-plum leading-relaxed">
                 <span className="text-rose-gold text-5xl leading-none">"</span>My mission in life is not merely to survive, but to thrive; and to do so with some passion, some compassion, some humor, and some style.<span className="text-rose-gold text-5xl leading-none">"</span>
               </p>
-              <cite className="block mt-6 font-cinzel text-[9px] tracking-cinzel uppercase text-plum not-italic">
+              <cite className="block mt-6 font-cinzel text-[10px] tracking-cinzel uppercase text-plum not-italic">
                 — Maya Angelou
               </cite>
             </blockquote>
@@ -190,6 +182,28 @@ export default function About() {
               className="w-full"
             />
           </div>
+        </div>
+      </section>
+
+      {/* Gradient transition */}
+      <div className="h-12 bg-gradient-to-b from-mauve-pink to-plum" aria-hidden="true" />
+
+      {/* CTA */}
+      <section className="relative bg-plum py-16 md:py-24 px-4 md:px-6 overflow-hidden" aria-labelledby="about-cta-heading">
+        <div className="absolute inset-0 opacity-10" aria-hidden="true">
+          <img src="/images/garden-party.png" alt="" className="w-full h-full object-cover" />
+        </div>
+        <div className="relative flex flex-col md:flex-row items-center justify-between gap-10">
+          <div>
+            <h2 id="about-cta-heading" className="font-cormorant text-5xl font-light text-blush mb-4">Ready to start?</h2>
+            <p className="font-jost text-[16px] text-blush/70 max-w-sm leading-relaxed">
+              Whether you have a full vision or just a feeling, let's talk through what your event needs and build from there.
+            </p>
+          </div>
+          <Link to="/contact" className="btn-outline-blush flex-shrink-0">
+            Work With Me
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+          </Link>
         </div>
       </section>
     </main>

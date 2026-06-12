@@ -44,6 +44,12 @@
            hover:bg-blush hover:text-plum transition-colors duration-200;
   }
 
+  /* Filled blush CTA (on dark bg) */
+  .btn-blush {
+    @apply inline-flex items-center gap-3 bg-blush text-plum font-cinzel text-[10px] tracking-cinzel uppercase px-7 py-4
+           hover:bg-blush/85 transition-colors duration-200;
+  }
+
   .field-label {
     @apply block font-cinzel font-bold text-[11px] tracking-cinzel uppercase text-plum mb-2;
   }

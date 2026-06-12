@@ -1,10 +1,10 @@
 export default function Footer() {
   return (
     <footer className="bg-plum text-blush">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-8">
 
         {/* Main 3-col layout */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
 
           {/* Col 1 — Contact */}
           <div className="flex flex-col gap-5">
@@ -38,7 +38,7 @@ export default function Footer() {
             <img
               src="/images/ag-mark-main-white.svg"
               alt="Anchor & Gold Events Co."
-              className="h-20 w-auto"
+              className="h-14 w-auto"
             />
             <p className="font-allura text-3xl text-rose-gold leading-none text-center">
               Anchored Vision. Gold Standard.
@@ -89,7 +89,7 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-blush/10 mt-12 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="border-t border-blush/10 mt-6 pt-4 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="font-jost text-[10px] text-blush/30">
             © {new Date().getFullYear()} Anchor &amp; Gold Events Co. LLC · Omaha, Nebraska
           </p>
