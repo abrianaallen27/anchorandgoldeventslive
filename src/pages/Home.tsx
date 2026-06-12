@@ -299,49 +299,6 @@ function StarIcon() {
 }
 
 
-/* ── EVENT INSPIRATION ─────────────────────────────────────── */
-const galleryImages = [
-  { src: '/images/gallery/Elegant Dinner Toast Image.png', alt: 'Elegant dinner toast' },
-  { src: '/images/gallery/Romance Table Setting.png', alt: 'Romance table setting' },
-  { src: '/images/gallery/Luxe Birthday.png', alt: 'Luxe birthday celebration' },
-  { src: "/images/gallery/Mother_s Day Brunch_Blush.png", alt: "Mother's Day brunch" },
-  { src: '/images/gallery/Barbie Birthday Party.png', alt: 'Barbie birthday party' },
-  { src: '/images/gallery/Little Cutie Baby Shower Dessert Table.png', alt: 'Baby shower dessert table' },
-]
-
-function EventInspiration() {
-  return (
-    <section className="bg-blush py-20 px-6" aria-labelledby="inspiration-heading">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-10">
-          <h2 id="inspiration-heading" className="font-cinzel text-xs tracking-cinzel uppercase text-plum">Event Inspiration</h2>
-          <span className="block mx-auto mt-2 mb-5 w-10 border-t border-rose-gold" aria-hidden="true" />
-          <p className="font-cormorant text-lg text-plum/70 max-w-md mx-auto">
-            A mood board of aesthetics and details inspiring the events I love to bring to life.
-          </p>
-        </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-          {galleryImages.map((img) => (
-            <div key={img.src} className="aspect-[4/3] overflow-hidden">
-              <img
-                src={img.src}
-                alt={img.alt}
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                loading="lazy"
-              />
-            </div>
-          ))}
-        </div>
-        <div className="text-center mt-10">
-          <Link to="/services" className="btn-outline-plum">
-            See My Services <ArrowRight />
-          </Link>
-        </div>
-      </div>
-    </section>
-  )
-}
-
 /* ── CONTACT TEASER ────────────────────────────────────────── */
 function ContactTeaser() {
   return (
