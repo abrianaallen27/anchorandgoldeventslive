@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, type FormEvent, type ChangeEvent } from 'react'
 import { useLocation } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 
 const eventTypes = [
   'Wedding',
@@ -120,6 +121,7 @@ export default function Contact() {
 
   return (
     <main className="bg-blush">
+      <Helmet><title>Contact | Anchor &amp; Gold Events Co.</title></Helmet>
       {/* Header — full bleed, photo left */}
       <section className="bg-plum" aria-label="Contact header">
         <div className="flex flex-col md:flex-row items-stretch">

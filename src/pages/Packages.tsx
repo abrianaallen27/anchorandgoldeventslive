@@ -1,7 +1,29 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import { Helmet } from 'react-helmet-async'
 
 const packages = [
+  {
+    name: 'The Golden Anchor',
+    subtitle: 'Custom Event Support',
+    price: 'Pricing is determined following initial consultation',
+    description: [
+      "Your event. Your people. Your moment. Some celebrations don't fit neatly into a category — and they don't have to. Whether it's a community fundraiser, a privately hosted celebration, or something entirely your own, I'll build a scope that meets you exactly where you are and holds everything to the same gold standard.",
+      "Birthdays, baby showers, bridal showers, graduation parties, engagement parties, themed gatherings — if you're hosting at home and want the experience to feel effortless and intentional, I can help with everything from décor and tablescape design to vendor sourcing, rental coordination, catering, party favors, and more. You focus on your guests. I'll handle the rest.",
+    ],
+    included: 'Scoped in full following your initial consultation. No assumptions, no surprises — just a clear agreement built around your actual event.',
+    moves: "Everything is determined together, depending on guest count, design intensity, and vendor coordination needs. Non-profit and community organization rates reflect a meaningful discount from standard pricing as part of Anchor & Gold's commitment to the communities we serve.",
+    ctaParam: 'The Golden Anchor (Custom Event Support)',
+  },
+  {
+    name: 'The Vision & Compass',
+    subtitle: 'Event Vision & Experience Development',
+    price: 'Starting at $500',
+    description: "You bring the vision. I bring the compass. Together we shape and refine your direction so every detail connects with clarity and purpose — from guest flow to aesthetic alignment. The result is a clear, confident plan that you and your vendors can execute with intention.",
+    included: '4–6 hours covering concept development, aesthetic direction, guest experience mapping, and a fully documented plan your vendors can work from.',
+    moves: 'Revision rounds beyond two · Complex or multi-layered vision · Scope of vendor briefing materials · Integration with ongoing planning support',
+    ctaParam: 'The Vision & Compass (Vision & Experience Development)',
+  },
   {
     name: 'The Anchor',
     subtitle: 'Event Management & Day-Of Coordination',
@@ -29,27 +51,6 @@ const packages = [
     included: '40–50 hours of service covering complete planning from first conversation through post-event wrap-up, vendor sourcing and management, budget tracking, timeline and logistics development, and full event day leadership. Based on a standard event up to 150 guests, single venue, Omaha metro.',
     moves: 'Guest count over 150 · Multiple events within the engagement · Production or design intensity · Extended planning timeline · Travel outside the Omaha metro',
     ctaParam: 'The Gold Standard (Full-Service Planning)',
-  },
-  {
-    name: 'The Vision & Compass',
-    subtitle: 'Event Vision & Experience Development',
-    price: 'Starting at $500',
-    description: "You bring the vision. I bring the compass. Together we shape and refine your direction so every detail connects with clarity and purpose — from guest flow to aesthetic alignment. The result is a clear, confident plan that you and your vendors can execute with intention.",
-    included: '4–6 hours covering concept development, aesthetic direction, guest experience mapping, and a fully documented plan your vendors can work from.',
-    moves: 'Revision rounds beyond two · Complex or multi-layered vision · Scope of vendor briefing materials · Integration with ongoing planning support',
-    ctaParam: 'The Vision & Compass (Vision & Experience Development)',
-  },
-  {
-    name: 'The Golden Anchor',
-    subtitle: 'Custom Event Support',
-    price: 'Pricing is determined following initial consultation',
-    description: [
-      "Your event. Your people. Your moment. Some celebrations don't fit neatly into a category — and they don't have to. Whether it's a community fundraiser, a privately hosted celebration, or something entirely your own, I'll build a scope that meets you exactly where you are and holds everything to the same gold standard.",
-      "Birthdays, baby showers, bridal showers, graduation parties, engagement parties, themed gatherings — if you're hosting at home and want the experience to feel effortless and intentional, I can help with everything from décor and tablescape design to vendor sourcing, rental coordination, catering, party favors, and more. You focus on your guests. I'll handle the rest.",
-    ],
-    included: 'Scoped in full following your initial consultation. No assumptions, no surprises — just a clear agreement built around your actual event.',
-    moves: "Everything is determined together, depending on guest count, design intensity, and vendor coordination needs. Non-profit and community organization rates reflect a meaningful discount from standard pricing as part of Anchor & Gold's commitment to the communities we serve.",
-    ctaParam: 'The Golden Anchor (Custom Event Support)',
   },
 ]
 
@@ -134,6 +135,7 @@ function Strip({ src, side }: { src: string; side: 'left' | 'right' }) {
 export default function Packages() {
   return (
     <main className="bg-blush">
+      <Helmet><title>Packages &amp; Pricing | Anchor &amp; Gold Events Co.</title></Helmet>
 
       {/* Header */}
       <section className="bg-plum py-8 md:py-12 px-4 md:px-6 text-center">

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useState, useEffect, useRef } from 'react'
+import { Helmet } from 'react-helmet-async'
 
 /* ── HERO ──────────────────────────────────────────────────── */
 function Hero() {
@@ -15,7 +16,7 @@ function Hero() {
         </h2>
         <span className="block w-10 border-t border-rose-gold mb-7" aria-hidden="true" />
         <p className="font-jost text-[16px] leading-relaxed text-plum/80 mb-6 max-w-sm">
-          Anchor &amp; Gold Events is a full-service event planning company built for clients who want their event handled with care and skill — and done without all the stress landing on them. Whether you want a true planning partner or someone to take the reins entirely, I adjust to your style and hold every detail to a standard that speaks for itself.
+          <span className="font-cinzel font-bold text-plum">Anchor &amp; Gold Events Company</span> is a full-service event planning firm built for clients who want their event handled with care and skill — and done without all the stress landing on them. Whether you want a true planning partner or someone to take the reins entirely, I adjust to your style and hold every detail to a standard that speaks for itself.
         </p>
         <p className="font-cormorant italic text-lg text-plum mb-8">When you're ready, so am I.</p>
         <Link to="/contact" className="btn-plum self-start">
@@ -63,22 +64,26 @@ const eventSlides = [
 ]
 
 function EventsBuiltFor() {
-  const [page, setPage] = useState(0)
+  const [active, setActive] = useState(0)
   const paused = useRef(false)
 
   const total = eventSlides.length
   const pageCount = Math.ceil(total / 3)
-  const prev = () => setPage((p) => (p - 1 + pageCount) % pageCount)
-  const next = () => setPage((p) => (p + 1) % pageCount)
+  const page = Math.floor(active / 3)
+
+  const prevMobile = () => setActive((a) => (a - 1 + total) % total)
+  const nextMobile = () => setActive((a) => (a + 1) % total)
+  const prevDesktop = () => setActive(((page - 1 + pageCount) % pageCount) * 3)
+  const nextDesktop = () => setActive(((page + 1) % pageCount) * 3)
 
   useEffect(() => {
     const id = setInterval(() => {
-      if (!paused.current) setPage((p) => (p + 1) % pageCount)
+      if (!paused.current) setActive((a) => (a + 1) % total)
     }, 5000)
     return () => clearInterval(id)
-  }, [pageCount])
+  }, [total])
 
-  const visible = [0, 1, 2].map((offset) => eventSlides[(page * 3 + offset) % total])
+  const desktopVisible = [0, 1, 2].map((offset) => eventSlides[(page * 3 + offset) % total])
 
   return (
     <section className="bg-plum py-16 px-2" aria-labelledby="events-heading">
@@ -94,82 +99,98 @@ function EventsBuiltFor() {
           </p>
         </div>
 
-        {/* Carousel */}
+        {/* Mobile — single card with dots */}
         <div
-          className="relative flex items-center gap-4"
+          className="md:hidden"
           onMouseEnter={() => { paused.current = true }}
           onMouseLeave={() => { paused.current = false }}
         >
-          {/* Prev */}
-          <button
-            onClick={prev}
-            aria-label="Previous event type"
-            className="flex-shrink-0 w-10 h-10 flex items-center justify-center border border-blush/30 text-blush/60 hover:border-rose-gold hover:text-rose-gold transition-colors"
-          >
-            ←
-          </button>
-
-          {/* Cards */}
-          <div key={page} className="carousel-fade flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 overflow-hidden">
-            {visible.map((slide, i) => (
-              <div
-                key={`${slide.caption}-${i}`}
-                className="flex flex-col"
-              >
-                {/* Image / placeholder */}
-                {slide.src ? (
-                  <img
-                    src={slide.src}
-                    alt={slide.caption}
-                    className="w-full aspect-[4/3] object-cover"
-                  />
-                ) : (
-                  <div className="w-full aspect-[4/3] bg-plum border border-blush/10 flex flex-col items-center justify-center gap-3">
-                    <img
-                      src="/images/ag-mark-rose.svg"
-                      alt=""
-                      aria-hidden="true"
-                      className="w-12 h-12 opacity-40"
-                    />
-                    <span className="font-cinzel text-[8px] tracking-cinzel uppercase text-blush/30">
-                      Image coming soon
-                    </span>
-                  </div>
-                )}
-                {/* Caption */}
-                <div className="border border-blush/10 border-t-0 px-4 py-3 text-center">
-                  <p className="font-cinzel text-[13px] tracking-cinzel uppercase text-blush/80">
-                    {slide.caption}
-                  </p>
+          <div className="px-4">
+            <div key={active} className="carousel-fade flex flex-col">
+              {eventSlides[active].src ? (
+                <img
+                  src={eventSlides[active].src}
+                  alt={eventSlides[active].caption}
+                  className="w-full aspect-[4/3] object-cover"
+                />
+              ) : (
+                <div className="w-full aspect-[4/3] bg-plum border border-blush/10 flex flex-col items-center justify-center gap-3">
+                  <img src="/images/ag-mark-rose.svg" alt="" aria-hidden="true" className="w-12 h-12 opacity-40" />
+                  <span className="font-cinzel text-[8px] tracking-cinzel uppercase text-blush/30">Image coming soon</span>
                 </div>
+              )}
+              <div className="border border-blush/10 border-t-0 px-4 py-3 text-center">
+                <p className="font-cinzel text-[13px] tracking-cinzel uppercase text-blush/80">
+                  {eventSlides[active].caption}
+                </p>
               </div>
-            ))}
+            </div>
           </div>
-
-          {/* Next */}
-          <button
-            onClick={next}
-            aria-label="Next event type"
-            className="flex-shrink-0 w-10 h-10 flex items-center justify-center border border-blush/30 text-blush/60 hover:border-rose-gold hover:text-rose-gold transition-colors"
-          >
-            →
-          </button>
+          <div className="flex items-center justify-center gap-3 mt-6">
+            <button onClick={prevMobile} aria-label="Previous event type" className="text-blush/40 hover:text-rose-gold">←</button>
+            {eventSlides.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setActive(i)}
+                aria-label={`Event type ${i + 1}`}
+                className={`w-1.5 h-1.5 rounded-full transition-colors duration-200 ${i === active ? 'bg-rose-gold' : 'bg-blush/25 hover:bg-blush/50'}`}
+              />
+            ))}
+            <button onClick={nextMobile} aria-label="Next event type" className="text-blush/40 hover:text-rose-gold">→</button>
+          </div>
         </div>
 
-        {/* Dot indicators */}
-        <div className="flex items-center justify-center gap-2 mt-7" role="tablist">
-          {Array.from({ length: pageCount }, (_, i) => (
+        {/* Desktop — 3 per page */}
+        <div
+          className="hidden md:block"
+          onMouseEnter={() => { paused.current = true }}
+          onMouseLeave={() => { paused.current = false }}
+        >
+          <div className="relative flex items-center gap-4">
             <button
-              key={i}
-              onClick={() => setPage(i)}
-              role="tab"
-              aria-selected={i === page}
-              aria-label={`Go to page ${i + 1}`}
-              className={`w-1.5 h-1.5 rounded-full transition-colors duration-200 ${
-                i === page ? 'bg-rose-gold' : 'bg-blush/25 hover:bg-blush/50'
-              }`}
-            />
-          ))}
+              onClick={prevDesktop}
+              aria-label="Previous event type"
+              className="flex-shrink-0 w-10 h-10 flex items-center justify-center border border-blush/30 text-blush/60 hover:border-rose-gold hover:text-rose-gold transition-colors"
+            >
+              ←
+            </button>
+            <div key={page} className="carousel-fade flex-1 grid grid-cols-2 lg:grid-cols-3 gap-5 overflow-hidden">
+              {desktopVisible.map((slide, i) => (
+                <div key={`${slide.caption}-${i}`} className="flex flex-col">
+                  {slide.src ? (
+                    <img src={slide.src} alt={slide.caption} className="w-full aspect-[4/3] object-cover" />
+                  ) : (
+                    <div className="w-full aspect-[4/3] bg-plum border border-blush/10 flex flex-col items-center justify-center gap-3">
+                      <img src="/images/ag-mark-rose.svg" alt="" aria-hidden="true" className="w-12 h-12 opacity-40" />
+                      <span className="font-cinzel text-[8px] tracking-cinzel uppercase text-blush/30">Image coming soon</span>
+                    </div>
+                  )}
+                  <div className="border border-blush/10 border-t-0 px-4 py-3 text-center">
+                    <p className="font-cinzel text-[13px] tracking-cinzel uppercase text-blush/80">{slide.caption}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <button
+              onClick={nextDesktop}
+              aria-label="Next event type"
+              className="flex-shrink-0 w-10 h-10 flex items-center justify-center border border-blush/30 text-blush/60 hover:border-rose-gold hover:text-rose-gold transition-colors"
+            >
+              →
+            </button>
+          </div>
+          <div className="flex items-center justify-center gap-2 mt-7" role="tablist">
+            {Array.from({ length: pageCount }, (_, i) => (
+              <button
+                key={i}
+                onClick={() => setActive(i * 3)}
+                role="tab"
+                aria-selected={i === page}
+                aria-label={`Go to page ${i + 1}`}
+                className={`w-1.5 h-1.5 rounded-full transition-colors duration-200 ${i === page ? 'bg-rose-gold' : 'bg-blush/25 hover:bg-blush/50'}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -397,6 +418,7 @@ function PinIcon() {
 export default function Home() {
   return (
     <>
+      <Helmet><title>Anchor &amp; Gold Events Co. | Event Planning in Omaha, Nebraska</title></Helmet>
       <Hero />
       <EventsBuiltFor />
       <SectionDivider />

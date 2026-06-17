@@ -48,9 +48,12 @@ const images: InspirationImage[] = Object.entries(imageModules).map(
   ([path, mod]) => parseImage(path, mod.default)
 )
 
+import { Helmet } from 'react-helmet-async'
+
 export default function Inspiration() {
   return (
     <main className="bg-blush">
+      <Helmet><title>Event Inspiration | Anchor &amp; Gold Events Co.</title></Helmet>
 
       {/* Page header */}
       <section className="bg-blush py-[60px] px-6">

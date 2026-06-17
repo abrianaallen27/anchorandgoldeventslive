@@ -7,11 +7,11 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
 
           {/* Col 1 — Contact */}
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-5 items-center md:items-start">
             <p className="font-cinzel text-[8px] tracking-cinzel uppercase text-rose-gold">
               Get in Touch
             </p>
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-3 items-center md:items-start">
               <a
                 href="mailto:hello@anchorandgoldevents.com"
                 className="flex items-center gap-2 font-jost text-[13px] text-blush/70 hover:text-rose-gold transition-colors"
@@ -26,30 +26,26 @@ export default function Footer() {
                 <img src="/images/icons/icon-phone.svg" alt="" aria-hidden="true" className="w-[20px] h-[20px] flex-shrink-0" />
                 (402) 819-8618
               </a>
-              <p className="flex items-center gap-2 font-jost text-[13px] text-blush/50">
-                <img src="/images/icons/icon-location.svg" alt="" aria-hidden="true" className="w-[20px] h-[20px] flex-shrink-0" />
-                Omaha, Nebraska
-              </p>
             </div>
           </div>
 
           {/* Col 2 — Logo + tagline */}
-          <div className="flex flex-col gap-4 md:items-center">
+          <div className="flex flex-col items-center md:gap-4">
             <img
               src="/images/ag-mark-main-white.svg"
               alt="Anchor & Gold Events Co."
-              className="h-14 w-auto"
+              className="h-14 w-auto mb-3 md:mb-0"
             />
-            <p className="font-allura text-3xl text-rose-gold leading-none text-center">
-              Anchored Vision. Gold Standard.
+            <p className="font-allura text-3xl text-rose-gold leading-none text-center mb-2 md:mb-0">
+              Anchored Vision.<br className="md:hidden" /> Gold Standard.
             </p>
-            <p className="font-jost text-[12px] text-blush/50 leading-relaxed text-center max-w-[200px]">
-              Full-service event planning based in Omaha, Nebraska.
+            <p className="font-jost text-[12px] text-blush/50 leading-relaxed text-center md:max-w-[200px]">
+              Full-service event planning in Omaha, Nebraska.
             </p>
           </div>
 
           {/* Col 3 — Social */}
-          <div className="flex flex-col gap-5 md:items-end">
+          <div className="flex flex-col gap-5 items-center md:items-end">
             <p className="font-cinzel text-[8px] tracking-cinzel uppercase text-rose-gold">
               Follow Along
             </p>

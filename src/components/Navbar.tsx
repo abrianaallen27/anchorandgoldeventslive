@@ -28,7 +28,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link to="/" className="flex-shrink-0" aria-label="Anchor & Gold Events Co. — Home">
           <img
-            src="/images/ag-logo-main.svg"
+            src="/images/ag-logo-main-horiz.png"
             alt="Anchor & Gold Events Co."
             className="ag-nav-logo-img w-auto"
           />
@@ -43,13 +43,15 @@ export default function Navbar() {
                 end={item.end}
                 className={({ isActive }) =>
                   `ag-nav-link font-cinzel text-[13px] tracking-[0.12em] uppercase whitespace-nowrap transition-colors duration-200 ${
-                    isActive
-                      ? 'text-rose-gold border-b border-rose-gold pb-0.5'
-                      : 'text-plum hover:text-rose-gold'
+                    isActive ? 'text-rose-gold' : 'text-plum hover:text-rose-gold'
                   }`
                 }
               >
-                {item.label}
+                {({ isActive }) => (
+                  <span className={isActive ? 'border-b border-rose-gold pb-0.5' : ''}>
+                    {item.label}
+                  </span>
+                )}
               </NavLink>
             </li>
           ))}

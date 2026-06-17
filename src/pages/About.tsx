@@ -1,9 +1,11 @@
 import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 
 export default function About() {
   return (
     <main>
+      <Helmet><title>About | Anchor &amp; Gold Events Co.</title></Helmet>
       {/* Hero */}
       <section className="flex flex-col lg:flex-row items-stretch" aria-label="About hero">
         {/* Left — copy */}
